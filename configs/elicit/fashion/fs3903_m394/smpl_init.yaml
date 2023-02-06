@@ -1,0 +1,36 @@
+task: 'fashion'
+subject: 'fs3903_m394'
+experiment: 'smpl_init_texture'
+#resume: True
+pretrained: ''
+load_net: latest # the name of saved model when resuming the training
+
+##############################################3
+## Data Configuration
+
+train:
+  skip: 1
+  dataset_module: 'core.data.elicit.init'
+  maxiter: 15000
+  save_model_interval: 5000
+  dataset: 'fashion_fs3903_m394_train'
+
+progress:
+  dataset_module: 'core.data.elicit.init'
+  dataset: 'zju_394_test'
+
+movement:
+  dataset_module: 'core.data.elicit.init'
+  dataset: 'zju_394_test'
+
+freeview:
+  dataset_module: 'core.data.elicit.freeview'
+  dataset: 'zju_394_test'
+
+tpose:
+  dataset_module: 'core.data.elicit.tpose'
+  dataset: 'zju_394_test'
+
+bgcolor: [0., 0., 0.]
+resize_img_scale: 0.5
+ignore_non_rigid_motions: True

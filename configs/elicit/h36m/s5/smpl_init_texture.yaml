@@ -1,0 +1,34 @@
+task: 'h36m'
+subject: 's5_smpl'
+experiment: 'smpl_init_texture'
+resume: True
+pretrained: ''
+load_net: latest # the name of saved model when resuming the training
+
+##############################################3
+## Data Configuration
+
+train:
+  dataset_module: 'core.data.elicit.init'
+  maxiter: 20000
+  dataset: 'h36m_s5_smpl_train'
+
+progress:
+  dataset_module: 'core.data.elicit.init'
+  dataset: 'h36m_s5_smpl_test'
+
+movement:
+  dataset_module: 'core.data.elicit.init'
+  dataset: 'h36m_s5_smpl_test'
+
+freeview:
+  dataset_module: 'core.data.elicit.freeview'
+  dataset: 'h36m_s5_smpl_test'
+
+tpose:
+  dataset_module: 'core.data.elicit.tpose'
+  dataset: 'h36m_s5_smpl_test'
+
+bgcolor: [0., 0., 0.]
+resize_img_scale: 0.5
+ignore_non_rigid_motions: True

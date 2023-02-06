@@ -1,0 +1,14 @@
+dataset:
+  zju_mocap_path: /share/data/ZJUMoCap/
+  subject: '313'
+  sex: 'neutral'
+
+training_view: 0
+max_frames: 1000
+interval: 1
+smpl_interval: 10
+
+output:
+  dir: ../../dataset/zju_mocap
+  name: '313'
+  single_frame_id: 31

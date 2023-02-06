@@ -1,0 +1,14 @@
+dataset:
+
+  zju_mocap_path: /share/data/H36M/
+  subject: 'S6/Posing'
+  sex: 'neutral'
+
+training_view: 3
+max_frames: 1162
+interval: 5
+smpl_interval: 10
+
+output:
+  dir: ../../dataset/h36m
+  name: 's6'

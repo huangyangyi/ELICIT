@@ -1,0 +1,34 @@
+task: 'zju_mocap'
+subject: 'p313_smpl'
+experiment: 'smpl_init_texture'
+resume: True
+pretrained: ''
+load_net: latest # the name of saved model when resuming the training
+
+##############################################3
+## Data Configuration
+
+train:
+  dataset_module: 'core.data.elicit.init'
+  maxiter: 15000
+  dataset: 'zju_313_smpl_train'
+
+progress:
+  dataset_module: 'core.data.elicit.init'
+  dataset: 'zju_313_test'
+
+movement:
+  dataset_module: 'core.data.elicit.init'
+  dataset: 'zju_313_test'
+
+freeview:
+  dataset_module: 'core.data.elicit.freeview'
+  dataset: 'zju_313_test'
+
+tpose:
+  dataset_module: 'core.data.elicit.tpose'
+  dataset: 'zju_313_test'
+
+bgcolor: [0., 0., 0.]
+resize_img_scale: 0.5
+ignore_non_rigid_motions: True

@@ -1,0 +1,156 @@
+task: 'zju_mocap'
+subject: 'p377'
+experiment: 'final_v1_nvs_27'
+trainer_module: 'core.train.trainers.elicit.trainer'
+
+resume: True
+pretrained: experiments/elicit/mydemo/zjumocap_377/smpl_init_texture/latest.tar
+load_net: latest # the name of saved model when resuming the training
+
+##############################################
+## Data Configuration
+train_keyfilter: ['rays',
+                  'motion_bases', 'motion_weights_priors',
+                  'cnl_bbox', 'dst_posevec_69', 'smpl_masks']
+train:
+  skip: 10
+  lr: 0.0005  # 5e-4
+  start_frame: 421
+  end_frame: 421
+  render_for_reference:
+    head:
+      back: ['left', 'right']
+      left: ['front']
+      right: ['front']
+    leftLeg:
+      back: ['left', 'right']
+    rightLeg:
+      back: ['left', 'right']
+    leftUpLeg:
+      back: ['left', 'right']
+    rightUpLeg:
+      back: ['left', 'right']
+  sil_loss_inside_only: True
+  single_frame_id: &train_frame_id frame_000420
+  maxiter: 5000
+  save_model_interval: 5000
+  resize_to_patchsize_by_mask: True
+  sample_body_parts:
+    full:
+      prob: 0.1
+      directions:
+        front: 0.25
+        left: 0.25
+        right: 0.25
+        back: 0.25
+    head:
+      prob: 0.3
+      directions:
+        front: 0.25
+        left: 0.25
+        right: 0.25
+        back: 0.25
+    body:
+      prob: 0.2
+      directions:
+        front: 0.25
+        left: 0.25
+        right: 0.25
+        back: 0.25
+    leftUpLeg:
+      prob: 0.05
+      directions:
+        front: 0.2
+        left: 0.6
+        back: 0.2
+    rightUpLeg:
+      prob: 0.05
+      directions:
+        front: 0.2
+        right: 0.6
+        back: 0.2
+    leftLeg:
+      prob: 0.05
+      directions:
+        front: 0.2
+        left: 0.6
+        back: 0.2
+    rightLeg:
+      prob: 0.05
+      directions:
+        front: 0.2
+        right: 0.6
+        back: 0.2
+    leftArm:
+      prob: 0.05
+      directions:
+        front: 0.2
+        left: 0.6
+        back: 0.2
+    rightArm:
+      prob: 0.05
+      directions:
+        front: 0.2
+        right: 0.6
+        back: 0.2
+    leftHand:
+      prob: 0.05
+      directions:
+        front: 0.2
+        left: 0.6
+        back: 0.2
+    rightHand:
+      prob: 0.05
+      directions:
+        front: 0.2
+        right: 0.6
+        back: 0.2
+    
+  use_smpl_data: True
+  num_smpl_cameras: 21
+  
+  with_clip: True
+  start_frame: 0
+  dataset_module: 'core.data.elicit.train'
+  dataset: 'zju_377_train'
+  lossweights:
+    lpips: 1.0
+    mse: 0.2
+    clip: 0.1
+    sil_l2: 0.01
+    sil_edge: 0.01
+  sample_novel_ratio: 0.5
+  
+
+progress:
+  dataset_module: 'core.data.elicit.init'
+  dataset: 'zju_377_test'
+
+movement:
+  dataset_module: 'core.data.elicit.init'
+  dataset: 'zju_377_test'
+
+freeview:
+  use_gt_camera: True 
+
+  dataset_module: 'core.data.elicit.freeview'
+  dataset: 'zju_377_test'
+
+tpose:
+  dataset_module: 'core.data.elicit.tpose'
+  dataset: 'zju_377_test'
+
+bgcolor: [0., 0., 0.]
+resize_img_scale: 0.5
+
+patch:
+  sample_subject_ratio: 0.9
+  N_patches: 1
+  size: 224      # [Patch] size of patch
+  sW: 1
+  sH: 1
+
+chunk: 8192
+
+ignore_non_rigid_motions: True
+source_data_dir: /share/data/ZJUMoCap/CoreView_377
