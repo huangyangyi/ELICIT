@@ -39,8 +39,8 @@ See more details in [Data Instruction](docs/data.md).
 ### Training
 
 ```bash
-python train.py --cfg configs/elicit/zju_mocap/377/smpl_init_texture.yaml 
-python train.py --cfg configs/elicit/zju_mocap/377/finetune.yaml
+python train.py --cfg configs/elicit/zju_mocap/377/smpl_init_texture.yaml # Run SMPL Meshes initialization.
+python train.py --cfg configs/elicit/zju_mocap/377/finetune.yaml # Run training on the input subject.
 ```
 
 We also provide checkpoints for all the subjects in [Google Drive](https://drive.google.com/file/d/13YukhgObfeyNODWvXJOPJWbIwQyFPLNo/view?usp=sharing), please unzip the file in the following structure:
