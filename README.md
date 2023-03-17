@@ -7,7 +7,7 @@ _ELICIT creates free-viewpoint motion videos from a single image by constructing
 
 Official repository of "One-shot Implicit Animatable Avatars with Model-based Priors".
 
-[[Arxiv](https://arxiv.org/abs/2212.02469)] [[Website](https://elicit3d.github.io)]
+[[Arxiv](https://arxiv.org/abs/2212.02469v2)] [[Website](https://elicit3d.github.io)]
 
 ## What Can Your Learn from ELICIT?
 1. The **data-efficient** pipeline of creating a 3D animatable avatar from **a single image**.
