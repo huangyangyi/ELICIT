@@ -1,4 +1,4 @@
-# One-shot Implicit Animatable Avatars with Model-based Priors
+# One-shot Implicit Animatable Avatars with Model-based Priors [ICCV2023]
 
 https://user-images.githubusercontent.com/29389089/216925630-50f9226c-17ee-4d5f-9c60-78c86e630bfc.mp4
 
@@ -79,11 +79,11 @@ The rendered frames and video will be saved at `experiments/zju_mocap/377/latest
 ## Citation
 
 ```bibtex
-@article{huang2022one,
+@inproceedings{huang2022elicit,
   title={One-shot Implicit Animatable Avatars with Model-based Priors},
   author={Huang, Yangyi and Yi, Hongwei and Liu, Weiyang and Wang, Haofan and Wu, Boxi and Wang, Wenxiao and Lin, Binbin and Zhang, Debing and Cai, Deng},
-  journal={arXiv preprint arXiv:2212.02469},
-  year={2022}
+  booktitle={IEEE Conference on Computer Vision (ICCV)}, 
+  year={2023}
 }
 ```
 
