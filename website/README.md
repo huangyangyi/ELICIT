@@ -1,0 +1,1 @@
+# Official Website of "One-shot Implicit Animatable Avatars with Model-based Priors"

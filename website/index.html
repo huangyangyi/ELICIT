@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="ELICIT creates free-viewpoint motion videos from a single image by constructing an animatable NeRF
+    representation in one-shot learning. Offcial website of 'One-shot Implicit Animatable Avatars with Model-based Priors'">
+  <meta name="keywords" content="ELICIT, NeRF, NeuralBody, HumanNeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>ELICIT</title>
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MRQC0YFE17"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MRQC0YFE17');
+</script>
+
+
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="./static/slick/slick.css" />
+  <link rel="stylesheet" type="text/css" href="./static/slick/slick-theme.css" />
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container">
+        <div class="container has-text-centered">
+          <h1 class="title is-1 publication-title">
+            One-shot Implicit Animatable Avatars with <br> Model-based Priors
+          </h1>
+          <div class="is-size-5 publication-authors">
+            <div class="author-block">
+              <a href="https://github.com/huangyangyi">Yangyi Huang</a><sup>1*</sup>,
+            </div>
+            <div class="author-block">
+              <a href="https://xyyhw.top/">Hongwei Yi</a><sup>2*</sup>,
+            </div>
+            <div class="author-block">
+              <a href="https://wyliu.com/">Weiyang Liu</a><sup>2,3</sup>,
+            </div>
+            <div class="author-block">
+              <a href="https://haofanwang.github.io/">Haofan Wang</a><sup>4</sup>,
+            </div>
+            <br>
+            <div class="author-block">
+              <a href="https://scholar.google.com/citations?user=AqDe35sAAAAJ">Boxi Wu</a><sup>1</sup>,
+            </div>
+            <div class="author-block">
+              <a href="https://www.wenxiaowang.com/">Wenxiao Wang</a><sup>1</sup>,
+            </div>
+            <div class="author-block">
+              <a href="https://scholar.google.com/citations?user=Zmvq4KYAAAAJ">Binbin Lin</a><sup>1</sup>,
+            </div>
+            <div class="author-block">
+              <a href="https://www.linkedin.com/in/%E5%BE%B7%E5%85%B5-%E5%BC%A0-a6451aa9?">Debing Zhang</a><sup>4</sup>,
+            </div>
+            <div class="author-block">
+              <a href="http://www.cad.zju.edu.cn/home/dengcai/">Deng Cai</a><sup>1</sup>,
+            </div>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>State Key Lab of CAD & CG, Zhejiang University </span>
+            <span class="author-block"><sup>2</sup>Max Planck Institute for Intelligent Systems, Tübingen, Germany</span>
+            <br>
+            <span class="author-block"><sup>3</sup>University of Cambridge </span>
+            <span class="author-block"><sup>4</sup>Xiaohongshu Inc.</span>
+            <br>
+            <span class="author-block"><sup>*</sup>denotes equal contribution</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2212.02469v2" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>PDF</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2212.02469v2" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/huangyangyi/ELICIT"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="hero teaser">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <video id="teaser" autoplay preload muted loop playsinline height="100%">
+          <source src="./static/videos/teaser.mp4" type="video/mp4">
+        </video>
+        <h2 class="subtitle">
+          <i>ELICIT</i> creates free-viewpoint motion videos from a single image by constructing an animatable NeRF
+          representation in one-shot learning.
+        </h2>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Existing neural rendering methods for creating human avatars typically either require dense input signals
+              such as video or multi-view images, or leverage a learned prior from large-scale specific 3D human
+              datasets such that reconstruction can be performed with sparse-view inputs. Most of these methods fail to
+              achieve realistic reconstruction when only a single image is available.
+              To enable the data-efficient creation of realistic animatable 3D humans, we propose ELICIT, a novel method
+              for learning human-specific neural radiance fields from a single image. Inspired by the fact that humans
+              can easily reconstruct the body geometry and infer the full-body clothing from a single image, we leverage
+              two priors in ELICIT: 3D geometry prior and visual semantic prior. Specifically, ELICIT introduces the 3D
+              body shape geometry prior from a skinned vertex-based template model (i.e., SMPL) and implements the
+              visual clothing semantic prior with the CLIP-based pre-trained models. Both priors are used to jointly
+              guide the optimization for creating plausible content in the invisible areas. In order to further improve
+              visual details, we propose a segmentation-based sampling strategy that locally refines different parts of
+              the avatar.Comprehensive evaluations on multiple popular benchmarks, including ZJU-MoCAP, Human3.6M, and
+              DeepFashion, show that ELICIT has outperformed current state-of-the-art avatar creation methods when only
+              a single image is available.
+              Code will be public for reseach purpose at <a href="https://github.com/huangyangyi/ELICIT">https://github.com/huangyangyi/ELICIT</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+
+      <!-- Paper video. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-2">Video</h2>
+          <div class="publication-video">
+            <iframe width="640" height="480" src="./static/videos/ELICIT-github-compressed.mp4"></iframe>
+          </div>
+        </div>
+      </div>
+      <!--/ Paper video. -->
+    </div>
+  </section>
+
+
+
+  <section class="hero section" id="results">
+    <div class="container content is-max-desktop has-text-centered">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Animatable Avatars From Single image</h2>
+          <h2 class="title is-4">Evaluation on multi-view captured 3D human datasets</h3>
+            <div class="content has-text-justified">
+              <p>
+                We evaluate <i>ELICIT</i> on multi-view 3D datasets ZJU-MoCAP and Human3.6M. For each example, given a single monocular RGB image, ELICIT can generate a realisitic animated avatar. We use the captured 3D groudtruth motion to animate the avatar to generate the synthesized motion video.
+              </p>
+            </div>
+            
+            <div class="hero-body" style="padding: 0.5rem;">
+              <div class="container">
+                <h2 class="title is-5">Results on <a href="https://chingswy.github.io/Dataset-Demo/">ZJU-MoCAP</a> dataset</h3>
+                <div id="results-carousel" class="carousel results-carousel">
+                  <div>
+                    <div class="results-item">
+                      <video poster="" id="zju-315" autoplay controls muted loop playsinline preload width="100%"> 
+                        <source src="./static/videos/315.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="results-item">
+                      <video poster="" id="zju-377" controls muted loop playsinline preload width="100%">
+                        <source src="./static/videos/377.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="results-item">
+                      <video poster="" id="zju-387"  controls muted loop playsinline preload width="100%">
+                        <source src="./static/videos/387.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="results-item">
+                      <video poster="" id="zju-386"  controls muted loop playsinline preload width="100%">
+                        <source src="./static/videos/386.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="results-item">
+                      <video poster="" id="zju-392"  controls muted loop playsinline preload width="100%">
+                        <source src="./static/videos/392.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="results-item">
+                      <video poster="" id="zju-313"  controls muted loop playsinline preload width="100%">
+                        <source src="./static/videos/313.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- <div class="columns is-centered has-text-centered">
+                  <div class="column is-three-quarters">
+                    <p>
+                     Results on <a href="https://chingswy.github.io/Dataset-Demo/">ZJU-MoCAP</a> dataset
+                    </p>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+            <div class="hero-body" style="padding: 0.5rem;">
+              <div class="container">
+                <h2 class="title is-5">Results on <a href="http://vision.imar.ro/human3.6m/description.php">Human3.6M</a> dataset</h3>
+                <div id="results-carousel" class="carousel results-carousel">
+                  <div>
+                    <div class="results-item">
+                      <video poster="" id="h36m-s1" autoplay controls muted loop playsinline preload width="100%">
+                        <source src="./static/videos/s1.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="results-item">
+                      <video poster="" id="h36m-s5"  controls muted loop playsinline preload width="100%">
+                        <source src="./static/videos/s5.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="results-item">
+                      <video poster="" id="h36m-s6"  controls muted loop playsinline preload width="100%">
+                        <source src="./static/videos/s6.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="results-item">
+                      <video poster="" id="h36m-s7"  controls muted loop playsinline preload width="100%">
+                        <source src="./static/videos/s7.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="results-item">
+                      <video poster="" id="h36m-s8"  controls muted loop playsinline preload width="100%">
+                        <source src="./static/videos/s8.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="results-item">
+                      <video poster="" id="h36m-s9"  controls muted loop playsinline preload width="100%">
+                        <source src="./static/videos/s9.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="results-item">
+                      <video poster="" id="h36m-s11"  controls muted loop playsinline preload width="100%">
+                        <source src="./static/videos/s11.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                  </div>
+                  
+                </div>
+
+                <!-- <div class="columns is-centered has-text-centered">
+                  <div class="column is-three-quarters">
+                    <p>
+                     Results on <a href="http://vision.imar.ro/human3.6m/description.php"></a>Human3.6M dataset
+                    </p>
+                  </div>
+                </div> -->
+
+    </div class="hero-body">
+    <h2 class="title is-4 has-text-centered">Evaluation on various cloth style humans</h3>
+    <div class="container is-max-desktop">
+    <div class="content has-text-justified">
+      <p>
+        <i>ELICIT</i> creates animatable avatars with realistic details on high-resolution 2D human photos with various cloth styles from DeepFashion datasets.
+      </p>
+      <video id="fashion" controls autoplay preload muted loop playsinline height="100%">
+        <source src="./static/videos/fashion.mp4" type="video/mp4">
+      </video>
+    </div>
+    </div>
+  </div>
+              </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="hero-body">
+      <h2 class="title is-4 has-text-centered">Comparison with SOTA NeRF methods <b>(single-image input)</b></h2>
+      <h2 class="title is-5 has-text-centered">Novel view synethesis</h2>
+      <div class="container is-max-desktop">
+        <video id="compare-fashion" autoplay preload muted loop playsinline height="100%">
+          <source src="./static/videos/compare-nvs.mp4" type="video/mp4">
+        </video>
+      </div>
+      <h2 class="title is-5 has-text-centered">Novel pose synethesis</h2>
+      <div class="container is-max-desktop">
+        <video id="compare-fashion" autoplay preload muted loop playsinline height="100%">
+          <source src="./static/videos/compare-nps.mp4" type="video/mp4">
+        </video>
+      </div>
+      <h2 class="title is-4 has-text-centered">Comparison with non-NeRF methods on DeepFashion</h2>
+      <div class="container is-max-desktop">
+        <video id="compare-fashion" autoplay preload muted loop playsinline height="100%">
+          <source src="./static/videos/compare-fashion.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section" id="BibTeX">
+    <div class="container content is-max-desktop">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@inproceedings{huang2022elicit,
+      title={One-shot Implicit Animatable Avatars with Model-based Priors},
+      author={Huang, Yangyi and Yi, Hongwei and Liu, Weiyang and Wang, Haofan and Wu, Boxi and Wang, Wenxiao and Lin, Binbin and Zhang, Debing and Cai, Deng},
+      booktitle={IEEE Conference on Computer Vision (ICCV)}, 
+      year={2023}
+  }</code></pre>
+  </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="https://arxiv.org/pdf/2212.02469">
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a class="icon-link" href="https://github.com/huangyangyi" class="external-link" disabled>
+          <i class="fab fa-github"></i>
+        </a>
+        <p>
+          The website template is borrowed from HyperNeRF.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="text/javascript" src="./static/slick/slick.js"></script>
+</body>
+
+</html>
